@@ -1,0 +1,13 @@
+[Unit]
+Description=Upkeep: update Bazzite, Flatpaks, Decky + plugins, then health-check
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=@UPKEEP@ run
+# Lowest priority so it never fights a game for CPU or disk
+Nice=19
+CPUWeight=1
+IOSchedulingClass=idle
+TimeoutStartSec=8h

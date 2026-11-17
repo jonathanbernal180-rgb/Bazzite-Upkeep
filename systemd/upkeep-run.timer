@@ -1,0 +1,13 @@
+[Unit]
+Description=Nightly upkeep run
+
+[Timer]
+OnCalendar=*-*-* 04:00:00
+RandomizedDelaySec=10m
+# Missed it because the PC was off? Run at next boot.
+Persistent=true
+# Wake the PC from sleep for it (not from a full shutdown)
+WakeSystem=true
+
+[Install]
+WantedBy=timers.target

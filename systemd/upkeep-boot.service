@@ -1,0 +1,11 @@
+[Unit]
+Description=Upkeep: health-check Decky and plugins after boot
+After=plugin_loader.service
+
+[Service]
+Type=oneshot
+ExecStart=@UPKEEP@ boot
+Nice=19
+CPUWeight=1
+IOSchedulingClass=idle
+TimeoutStartSec=30min
